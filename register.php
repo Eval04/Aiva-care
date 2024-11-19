@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="d-flex justify-content-center align-items-center vh-100">
     <div class="card shadow-lg p-4" style="width: 30rem;">
         <div class="text-center">
-            <img src="img/Sircle logo.png" alt="Aiva Care Logo" style="width: 80px;" class="mb-3">
+            <img src="Asset/logo.jpg" alt="Aiva Care Logo" style="width: 60px;" class="mb-3">
             <h4 class="mb-4">Daftar Akun Baru</h4>
         </div>
 
