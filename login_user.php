@@ -22,7 +22,7 @@ if (!$result) {
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-        <a class="navbar-brand" href="#"><img src="img/Sircle logo.png" alt="Aiva Care Logo" style="width: 50px;" class="mb-3">
+        <a class="navbar-brand" href="#"><img src="Asset/logo.jpg" alt="Aiva Care Logo" style="width: 60px;" class="mb-3">
         </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
