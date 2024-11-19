@@ -52,21 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Aiva Care - Register</title>
     <!-- Link ke CSS Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .card {
-            border-radius: 20px;
-        }
-        .btn-primary {
-            background-color: #6c63ff;
-            border: none;
-        }
-        .btn-primary:hover {
-            background-color: #5a54e0;
-        }
-    </style>
+   
 </head>
 <body class="d-flex justify-content-center align-items-center vh-100">
     <div class="card shadow-lg p-4" style="width: 30rem;">

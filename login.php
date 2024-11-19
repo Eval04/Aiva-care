@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['user_email'] = $user['email'];
 
                 // Redirect ke halaman utama
-                header("Location: index.php");
+                header("Location: login_user.php");
                 exit();
             } else {
                 $error = "Password salah!";
@@ -53,12 +53,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!-- Link ke CSS Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-light">
-    <div class="container d-flex justify-content-center align-items-center vh-100">
-        <div class="card shadow-lg" style="width: 30rem;">
-            <div class="card-body">
-                <h3 class="card-title text-center mb-4">Aiva Care Login</h3>
-
+<body class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4" style="width: 30rem;">
+        <div class="text-center">
+            <img src="img/Sircle logo.png" alt="Aiva Care Logo" style="width: 80px;" class="mb-3">
+            <h4 class="mb-4">Login</h4>
+        </div>
                 <!-- Menampilkan pesan error -->
                 <?php if (isset($error)): ?>
                     <div class="alert alert-danger">
