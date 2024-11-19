@@ -17,6 +17,8 @@ if (!$result) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIVA - Platform Donasi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="ccss/style.css" rel="stylesheet">
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -40,26 +42,26 @@ if (!$result) {
     <div class="container my-5">
     <h1 class="text-center mb-4">Daftar Kampanye Donasi</h1>
     <div class="row">
-        <?php if ($result && $result->num_rows > 0): ?>
-            <?php while($campaign = $result->fetch_assoc()): ?>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="<?= $campaign['image'] ?>" class="card-img-top" alt="<?= $campaign['title'] ?>">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $campaign['title'] ?></h5>
-                            <p class="card-text"><?= $campaign['description'] ?></p>
+    <?php if ($result && $result->num_rows > 0): ?>
+        <?php while($campaign = $result->fetch_assoc()): ?>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="<?= $campaign['image'] ?>" class="card-img-top" alt="<?= $campaign['title'] ?>">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $campaign['title'] ?></h5>
+                        <p class="card-text"><?= $campaign['description'] ?></p>
+                        
+                        <?php 
+                            $collected = $campaign['collected_amount'];
+                            $target = $campaign['target_amount'];
+                            $progress = ($target > 0) ? min(100, ($collected / $target) * 100) : 0; 
+                        ?>
+                        
+                        <p class="card-text">
+                            <strong>Terkumpul:</strong> Rp <?= number_format($collected, 0, ',', '.') ?> / 
+                            Rp <?= number_format($target, 0, ',', '.') ?>
+                        </p>
                             
-                            <!-- Hitung progres donasi -->
-                            <?php 
-                                $collected = $campaign['collected_amount'];
-                                $target = $campaign['target_amount'];
-                                $progress = ($target > 0) ? min(100, ($collected / $target) * 100) : 0; 
-                            ?>
-                            
-                            <p class="card-text">
-                                <strong>Terkumpul:</strong> Rp <?= number_format($collected, 0, ',', '.') ?> / 
-                                Rp <?= number_format($target, 0, ',', '.') ?>
-                            </p>
                             
                             <!-- Progress bar -->
                             <div class="progress mb-3">
