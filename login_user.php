@@ -20,19 +20,26 @@ if (!$result) {
     <link href="ccss/style.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-        <a class="navbar-brand" href="#"><img src="Asset/logo.jpg" alt="Aiva Care Logo" style="width: 60px;" class="mb-3">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light ">
+    <div class="container d-flex fixed-top">
+        <!-- Logo -->
+        <a class="navbar-brand me-auto" href="#">
+            <img src="Asset/logo.jpg" alt="Aiva Care Logo" style="width: 60px;">
         </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+
+        <!-- Navbar toggle button (for mobile view) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Campaigns</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                 </ul>
+            </div>
+            <div class="ms-auto">
+                <a href="#">Email User</a>
             </div>
         </div>
     </nav>
