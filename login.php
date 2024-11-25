@@ -32,7 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['user_email'] = $user['email'];
 
                 // Redirect ke halaman utama
-                header("Location: login_user.php");
+                // ingat ganti kalo sudah mu buat from homepage login nya
+                header("Location: home_page.php");
                 exit();
             } else {
                 $error = "Password salah!";
