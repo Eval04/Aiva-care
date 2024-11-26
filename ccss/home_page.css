@@ -1,4 +1,117 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+.navbar-nav {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.1vw;
+}
+
 .menu-section a {
   text-decoration: none;
   color: inherit;
+}
+
+.about-us .card-text {
+  font-size: 1.1vw;
+  padding: 10px;
+}
+
+.about-us .card {
+  height: 500px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.carousel-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.carousel-item {
+  width: 100%;
+  height: 400px;
+}
+.carousel-item img {
+  border-radius: 15px;
+  object-fit: cover;
+  margin: 0 auto;
+  max-width: 50%;
+}
+.carousel-title {
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+#footer {
+  background-color: #d92d2a; /* Warna latar belakang merah */
+  color: white; /* Teks berwarna putih */
+  padding: 20px 0; /* Memberikan padding atas dan bawah */
+  font-family: Arial, sans-serif; /* Menetapkan font */
+}
+
+#footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.footer-left {
+  text-align: left;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.brand-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.copyright {
+  font-size: 14px;
+}
+
+.footer-right p {
+  font-size: 14px;
+  margin-bottom: 10px; /* Memberikan jarak bawah */
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px; /* Menambahkan jarak antar ikon */
+}
+
+.social-icon {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #f1f1f1;
+}
+
+.social-icon.instagram:hover {
+  color: #e4405f;
+}
+
+.social-icon.twitter:hover {
+  color: #1da1f2;
+}
+
+.social-icon.tiktok:hover {
+  color: #010101;
 }
