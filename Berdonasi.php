@@ -75,7 +75,7 @@ if (!$result) {
                                 </div>
                             </div>
 
-                            <a href="#" class="btn btn-primary">Donasi Sekarang</a>
+                            <a href="login.php" class="btn btn-primary">Donasi Sekarang</a>
                         </div>
                     </div>
                 </div>
