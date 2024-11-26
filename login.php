@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 // Redirect ke halaman utama
                 // ingat ganti kalo sudah mu buat from homepage login nya
-                header("Location: home_page.php");
+                header("Location: Login-Berdonasi.php");
                 exit();
             } else {
                 $error = "Password salah!";
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body class="d-flex justify-content-center align-items-center vh-100">
     <div class="card shadow-lg p-4" style="width: 30rem;">
         <div class="text-center">
-            <img src="Asset/logo.jpg" alt="Aiva Care Logo" style="width: 60px;" class="mb-3">
+            <img src="Asset/logo.png" alt="Aiva Care Logo" style="width: 60px;" class="mb-3">
             <h4 class="mb-4">Login</h4>
         </div>
                 <!-- Menampilkan pesan error -->

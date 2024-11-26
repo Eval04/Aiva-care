@@ -46,7 +46,7 @@
 
 
 <!-- Hero Section -->
-<section id = "hero" class="hero bg-light py-5">
+<section id = "hero" class="hero bg-light ">
     <div class="container">
         <div class="row justify-content-center align-items-center text-center">
             <div class="col-lg-6">
@@ -61,8 +61,8 @@
 </section>
 
 <!-- About US Section -->
-<section id="About-us" class="about-us bg-light py-5">
-    <div class="container mt-5 ">
+<section id="About-us" class="about-us bg-light py-4 ">
+    <div class="container mt-4 ">
         <div class="card shadow">
         <div class="card-body">
             <h1 class="card-title text-center mb-4">About Us</h1>
@@ -108,10 +108,9 @@
                 </div>
                 <!-- Slide 3 -->
                 <div class="carousel-item">
-                    <img src="Asset/bukti1.png" class="d-block w-100" alt="Activity 3">
+                    <img src="Asset/bukti1.png" class="d-block w-100" alt="Activity 2">
                 </div>
-            </div>
-
+                
             <!-- Navigation Arrows -->
             <button class="carousel-control-prev" type="button" data-bs-target="#activityCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -128,7 +127,8 @@
 
 
 <!-- Menu Section-->
-<section id="Menu" class="menu-section py-5">
+<section id="Menu" class="menu-section p-5">
+<h1 class="mx-auto text-center mb-4">Menu Utama</h1>
     <div class="container">
         <div class="row text-center">
             <!-- Menu Item 1 -->
@@ -172,14 +172,14 @@
 
 <!-- footer Section -->
  <section id="footer">
- <div class="container">
+ <div class="container ">
     <div class="footer-content">
       <div class="footer-left">
-        <p class="brand-name">AIVACARE</p>
-        <p class="copyright">© 2024 AIVA - Platform Donasi. Semua hak dilindungi.</p>
+        <p class="brand-name ds-5">AIVACARE</p>
+        <p class="copyright fs-5">© 2024 AIVA - Platform Donasi. Semua hak dilindungi.</p>
       </div>
       <div class="footer-right">
-        <p>Social Media</p>
+        <p class="fs-5">Social Media</p>
         <div class="social-icons">
           <a href="#" class="social-icon instagram"><i class="fab fa-instagram"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="#000000" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"/></svg> </i></a>
           <a href="#" class="social-icon twitter"><i class="fab fa-x"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 251 256"><path d="M149.079 108.399L242.33 0h-22.098l-80.97 94.12L74.59 0H0l97.796 142.328L0 256h22.1l85.507-99.395L175.905 256h74.59L149.073 108.399zM118.81 143.58l-9.909-14.172l-78.84-112.773h33.943l63.625 91.011l9.909 14.173l82.705 118.3H186.3l-67.49-96.533z"/></svg></i></a>

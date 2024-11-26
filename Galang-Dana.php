@@ -29,6 +29,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("<div class='alert alert-danger'>Harap isi semua data yang diperlukan!</div>");
     }
 
+      // Cek apakah gambar diunggah
+      if (empty($_FILES['gambar']['name'])) {
+        die("<div class='alert alert-danger'>Harap unggah gambar!</div>");
+    }
+
     // Validasi gambar
     $check = getimagesize($_FILES["gambar"]["tmp_name"]);
     if ($check === false) {
@@ -59,73 +64,101 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 ?>
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="Asset/logo.png" alt="Aiva Care Logo" style="width: 60px;" class="mb-3">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto fw-bold">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Campaigns</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <div class="container my-5">
-        <h2 class="text-center mb-4">Galang Donasi</h2>
-        <form class="border p-4 shadow-sm bg-light" method="POST" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="gambar" class="form-label">Upload Gambar (Disarankan format Landscape)</label>
-                <input type="file" class="form-control" id="gambar" name="gambar">
+    <h2 class="text-center mb-4">Galang Donasi</h2>
+    <form class="border p-4 shadow-sm bg-light" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="gambar" class="form-label">Upload Gambar (Disarankan format Landscape)</label>
+            <input type="file" class="form-control" id="gambar" name="gambar">
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="nama" class="form-label">Nama</label>
+                <input type="text" class="form-control" id="nama" name="nama" required>
             </div>
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="nama" class="form-label">Nama</label>
-                    <input type="text" class="form-control" id="nama" name="nama" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="judul_donasi" class="form-label">Judul Donasi</label>
-                    <input type="text" class="form-control" id="judul_donasi" name="judul_donasi" required>
-                </div>
+            <div class="col-md-6">
+                <label for="judul_donasi" class="form-label">Judul Donasi</label>
+                <input type="text" class="form-control" id="judul_donasi" name="judul_donasi" required>
             </div>
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="kategori" class="form-label">Kategori</label>
-                    <input type="text" class="form-control" id="kategori" name="kategori">
-                </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
             </div>
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="no_telp" class="form-label">No Telepon</label>
-                    <input type="text" class="form-control" id="no_telp" name="no_telp" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="opsi_bank" class="form-label">Opsi Bank</label>
-                    <input type="text" class="form-control" id="opsi_bank" name="opsi_bank">
-                </div>
+            <div class="col-md-6">
+                <label for="kategori" class="form-label">Kategori</label>
+                <select class="form-control" id="kategori" name="kategori" required>
+                    <option value="">Pilih Kategori</option>
+                    <option value="Pendidikan">Pendidikan</option>
+                    <option value="Bantuan Sosial">Bantuan Sosial</option>
+                    <option value="Bencana Alam">Bencana Alam</option>
+                </select>
             </div>
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="no_rek" class="form-label">No Rek</label>
-                    <input type="text" class="form-control" id="no_rek" name="no_rek" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="alamat" class="form-label">Alamat</label>
-                    <input type="text" class="form-control" id="alamat" name="alamat">
-                </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="no_telp" class="form-label">No Telepon</label>
+                <input type="text" class="form-control" id="no_telp" name="no_telp" required>
             </div>
-            <div class="mb-3">
-                <label for="deskripsi" class="form-label">Deskripsi</label>
-                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3"></textarea>
+            <div class="col-md-6">
+                <label for="opsi_bank" class="form-label">Opsi Bank</label>
+                <select class="form-control" id="opsi_bank" name="opsi_bank" required>
+                    <option value="">Pilih Bank</option>
+                    <option value="BCA">BCA</option>
+                    <option value="MANDIRI">Mandiri</option>
+                    <option value="BNI">BNI</option>
+                    <option value="BRI">BRI</option>
+                </select>
             </div>
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="jumlah_donasi" class="form-label">Jumlah Donasi yang Dibutuhkan</label>
-                    <input type="number" class="form-control" id="jumlah_donasi" name="jumlah_donasi" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="tenggat_waktu" class="form-label">Tenggat Waktu Donasi</label>
-                    <input type="date" class="form-control" id="tenggat_waktu" name="tenggat_waktu">
-                </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="no_rek" class="form-label">No Rek</label>
+                <input type="text" class="form-control" id="no_rek" name="no_rek" required>
             </div>
-            <button type="submit" class="btn btn-danger w-100">Buat</button>
-        </form>
-    </div>
+            <div class="col-md-6">
+                <label for="alamat" class="form-label">Alamat</label>
+                <input type="text" class="form-control" id="alamat" name="alamat">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="deskripsi" class="form-label">Deskripsi</label>
+            <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3"></textarea>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="jumlah_donasi" class="form-label">Jumlah Donasi yang Dibutuhkan</label>
+                <input type="number" class="form-control" id="jumlah_donasi" name="jumlah_donasi" required>
+            </div>
+            <div class="col-md-6">
+                <label for="tenggat_waktu" class="form-label">Tenggat Waktu Donasi</label>
+                <input type="date" class="form-control" id="tenggat_waktu" name="tenggat_waktu">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-danger w-100">Buat</button>
+    </form>
+</div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

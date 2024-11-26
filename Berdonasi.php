@@ -2,7 +2,7 @@
 include ("connection/koneksi.php");
 
 // Jalankan query untuk mengambil data kampanye
-$sql = "SELECT * FROM campaigns";
+$sql = "SELECT * FROM campaign";
 $result = $conn->query($sql);
 
 // Periksa apakah query berhasil
@@ -24,7 +24,7 @@ if (!$result) {
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="Asset/logo.jpg" alt="Aiva Care Logo" style="width: 60px;" class="mb-3">
+                <img src="Asset/logo.png" alt="Aiva Care Logo" style="width: 60px;" class="mb-3">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -47,28 +47,26 @@ if (!$result) {
         <?php while($campaign = $result->fetch_assoc()): ?>
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="<?= $campaign['image'] ?>" class="card-img-top" alt="<?= $campaign['title'] ?>">
+                    <img src="<?= $campaign['gambar'] ?>" class="card-img-top" alt="<?= $campaign['judul_donasi'] ?>">
                     <div class="card-body">
-                        <h5 class="card-title"><?= $campaign['title'] ?></h5>
-                        <p class="card-text"><?= $campaign['description'] ?></p>
+                        <h5 class="card-title"><?= $campaign['judul_donasi'] ?></h5>
+                        <p class="card-text"><?= $campaign['deskripsi'] ?></p>
                         
                         <?php 
-                            $collected = $campaign['collected_amount'];
-                            $target = $campaign['target_amount'];
-                            $progress = ($target > 0) ? min(100, ($collected / $target) * 100) : 0; 
+                            $jumlah_terkumpul = $campaign['jumlah_terkumpul'];
+                            $jumlah_donasi = $campaign['jumlah_donasi'];
+                            $progress = ($jumlah_donasi > 0) ? min(100, ($jumlah_terkumpul / $jumlah_donasi) * 100) : 0; 
                         ?>
                         
                         <p class="card-text">
-                            <strong>Terkumpul:</strong> Rp <?= number_format($collected, 0, ',', '.') ?> / 
-                            Rp <?= number_format($target, 0, ',', '.') ?>
+                            <strong>Terkumpul:</strong> Rp <?= number_format($jumlah_terkumpul, 0, ',', '.') ?> / 
+                            Rp <?= number_format($jumlah_donasi, 0, ',', '.') ?>
                         </p>
-                            
                             
                             <!-- Progress bar -->
                             <div class="progress mb-3">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" 
+                                <div class="progress-bar bg-success" 
                                      role="progressbar" 
-                                     aria-label="Animated striped example"
                                      style="width: <?= $progress ?>%;" 
                                      aria-valuenow="<?= $progress ?>" 
                                      aria-valuemin="0" 

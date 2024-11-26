@@ -8,14 +8,23 @@ body {
   font-family: "Raleway", sans-serif;
   font-size: 1.1vw;
 }
+/* hero */
+#hero.hero {
+  padding-bottom: 0%;
+  padding-top: 48px;
+}
 
 .menu-section a {
   text-decoration: none;
   color: inherit;
 }
 
+.about-us {
+  padding: 0%;
+  margin-top: 0;
+}
 .about-us .card-text {
-  font-size: 1.1vw;
+  font-size: 1.1rem;
   padding: 10px;
 }
 
