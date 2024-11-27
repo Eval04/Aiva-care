@@ -2,11 +2,10 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins";
 }
 .navbar-nav {
-  font-family: "Raleway", sans-serif;
-  font-size: 1.1vw;
+  font-size: 1.1rem;
 }
 /* hero */
 #hero.hero {
@@ -26,11 +25,12 @@ body {
 .about-us .card-text {
   font-size: 1.1rem;
   padding: 10px;
+  text-align: justify;
 }
 
 .about-us .card {
   height: 500px;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -53,6 +53,23 @@ body {
   margin-bottom: 15px;
   font-weight: bold;
   font-size: xx-large;
+}
+
+.icon-wrapper {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon-wrapper:hover {
+  transform: translateY(-10px); /* Naik ke atas */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Tambahkan bayangan */
+}
+
+.fw-bold {
+  transition: color 0.3s ease;
+}
+
+.icon-wrapper:hover + p {
+  color: #ff0800; /* Ubah warna teks menjadi merah saat hover */
 }
 
 #footer {

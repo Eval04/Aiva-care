@@ -1,55 +1,16 @@
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: "Poppins";
 }
-
 .navbar-nav {
   font-size: 1.1rem;
 }
 
-.card-img-top {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 5px; /* Tambahan untuk estetika */
+.gambar-donasi img {
+  border-radius: 15px;
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tambahan shadow */
-}
-
-.card-body {
-  flex-grow: 1;
-  padding: 16px;
-}
-
-.card-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-
-.card-text {
-  font-size: 1rem;
-  color: #555;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* Batasi ke 2 baris */
-  -webkit-box-orient: vertical;
-}
-
-.progress-bar {
-  background-color: #28a745 !important; /* Hijau Bootstrap */
-}
-
-.col-md-4 {
-  margin-bottom: 20px;
+#deskripsi {
+  resize: none;
 }
 
 #footer {
@@ -120,8 +81,4 @@ body {
 
 .social-icon.tiktok:hover {
   color: #010101;
-}
-
-#deskripsi {
-  resize: none;
 }
