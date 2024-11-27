@@ -31,36 +31,44 @@ if (!$result) {
     <!-- Memuat Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Memuat CSS lokal -->
-    <link rel="stylesheet" href="ccss/style.css?v=1.0">
+    <link rel="stylesheet" href="ccss/style.css">
     <!-- Font dan Ikon -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
 <!-- Navbar -->
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light shadow-sm">
-    <div class="container">
-        <!-- Logo -->
-        <a class="navbar-brand" href="#">
-            <img src="Asset/logo.png" alt="Aiva Care Logo" style="width: 60px;">
-        </a>
+        <div class="container-fluid d-flex">
+            <!-- Logo -->
+            <a class="navbar-brand me-auto" href="#">
+                <img src="Asset/logo.png" alt="Aiva Care Logo" style="width: 60px;">
+            </a>
 
-        <!-- Tombol Toggle Navbar -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <!-- Navbar toggle button (for mobile view) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <!-- Item Navbar -->
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#About-us">About Us</a></li>
-            </ul>
+            <!-- Navbar items -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="profile.php#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.php#About-us">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.php#documentation">Documentation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.php#Menu">Menu</a></li>
+                </ul>
+            </div>
+
+            <!-- Login button -->
+            <div class="ms-auto">
+                
+                <a class="nav-link" href="profile.php"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M16 9a4 4 0 1 1-8 0a4 4 0 0 1 8 0m-2 0a2 2 0 1 1-4 0a2 2 0 0 1 4 0"/><path d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11s11-4.925 11-11S18.075 1 12 1M3 12c0 2.09.713 4.014 1.908 5.542A8.99 8.99 0 0 1 12.065 14a8.98 8.98 0 0 1 7.092 3.458A9 9 0 1 0 3 12m9 9a8.96 8.96 0 0 1-5.672-2.012A6.99 6.99 0 0 1 12.065 16a6.99 6.99 0 0 1 5.689 2.92A8.96 8.96 0 0 1 12 21"/></g></svg></a>
+
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
 <!-- Filter Kategori -->
 <div class="container my-4 end">
@@ -68,10 +76,12 @@ if (!$result) {
         <div class="row">
             <div class="col-md-4">
                 <select class="form-select" name="kategori" onchange="this.form.submit()">
-                    <option value="">Filter</option>
+                    <option value=""> Filter</option>
                     <option value="Pendidikan" <?= $kategori_filter == 'Pendidikan' ? 'selected' : '' ?>>Pendidikan</option>
                     <option value="Bantuan Sosial" <?= $kategori_filter == 'Bantuan Sosial' ? 'selected' : '' ?>>Bantuan Sosial</option>
                     <option value="Bencana Alam" <?= $kategori_filter == 'Bencana Alam' ? 'selected' : '' ?>>Bencana Alam</option>
+                    <option value="Kesehatan" <?= $kategori_filter == 'Kesehatan' ? 'selected' : '' ?>>Kesehatan</option>
+                    <option value="Lingkungan Hidup" <?= $kategori_filter == 'Lingkungan Hidup' ? 'selected' : '' ?>>Lingkungan Hidup</option>
                 </select>
             </div>
         </div>
