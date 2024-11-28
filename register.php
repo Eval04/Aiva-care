@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
             // Simpan data pengguna ke database
-            $sql = "INSERT INTO users (email, password) VALUES (?, ?)";
+            $sql = "INSERT INTO users (email, nama, password) VALUES (?, ?)";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param('ss', $email, $hashed_password);
 
@@ -68,6 +68,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
 
         <form method="POST">
+            <!-- nama input -->
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama</label>
+                <input type="nama" class="form-control" id="nama" name="nama" placeholder="Username Kamu" required>
+            </div>
             <!-- Email Input -->
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>

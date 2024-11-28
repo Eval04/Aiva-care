@@ -1,5 +1,13 @@
-<?php 
-// Menyertakan file koneksi database
+<?php
+// Mulai sesi
+session_start();
+
+// Periksa apakah pengguna sudah login
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php"); // Redirect ke halaman login jika belum login
+    exit();
+}
+
 include("connection/koneksi.php");
 
 // Cek apakah ada kategori yang dipilih

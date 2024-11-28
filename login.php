@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 // Redirect ke halaman utama
                 // ingat ganti kalo sudah mu buat from homepage login nya
-                header("Location: Login-Berdonasi.php");
+                header("Location: home_page_login.php");
                 exit();
             } else {
                 $error = "Password salah!";

@@ -1,3 +1,22 @@
+<?php
+// Mulai sesi
+session_start();
+
+// Periksa apakah pengguna sudah login
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php"); // Redirect ke halaman login jika belum login
+    exit();
+}
+
+// Koneksi database
+require 'connection/koneksi.php';
+
+// Periksa apakah koneksi berhasil
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
