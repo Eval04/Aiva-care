@@ -139,7 +139,7 @@
  <div class="container ">
     <div class="footer-content">
       <div class="footer-left">
-        <p class="brand-name ds-5">AIVACARE</p>
+        <p class="brand-name ds-7">AIVACARE</p>
         <p class="copyright fs-5">© 2024 AIVA - Platform Donasi. Semua hak dilindungi.</p>
       </div>
       <div class="footer-right">
