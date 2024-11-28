@@ -98,7 +98,7 @@ if ($result && $result->num_rows > 0) {
                     <div class="card-body">
                         <h5 class="card-title mb-5">Lanjutkan ke pembayaran </h5>
                     
-                        <a href="form_donasi.php?id=<?= $campaign['id'] ?>" class="btn btn-danger mb-3">Mulai Donasi</a>
+                        <a href="metode_pembayaran.php?id=<?= $campaign['id'] ?>" class="btn btn-danger mb-3">Mulai Donasi</a>
                     </div>
                 </div>
                 <!-- Belum ada form pembayaran nya  -->
