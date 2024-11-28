@@ -1,147 +1,161 @@
 body {
-    font-family: "Poppins";
-  }
-  .navbar-nav {
-    font-size: 1.1rem;
-  }
+  font-family: "Poppins";
+}
+.navbar-nav {
+  font-size: 1.1rem;
+}
+.form-group input,
+.form-group select {
+  font-size: 1rem;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
 
 footer {
-    background-color: #f5f5f5;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
-    border-top: 1px solid #ddd;
+  background-color: #f5f5f5;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
 }
 footer .social-media a {
-    margin: 0 10px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #333;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #333;
 }
 .container {
-    padding: 20px;
+  padding: 20px;
 }
 .tab {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 .tab button {
-    padding: 10px 20px;
-    border: 1px solid #ddd;
-    background-color: #f9f9f9;
-    cursor: pointer;
-    outline: none;
-    font-size: 16px;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  outline: none;
+  font-size: 16px;
 }
 .tab button.active {
-    background-color: red;
-    color: white;
+  background-color: red;
+  color: white;
 }
 .content {
-    display: none;
+  display: none;
 }
 .content.active {
-    display: block;
+  display: block;
 }
 .form-group {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 .form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 .form-group input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 .form-group select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 .btn {
-    padding: 10px 20px;
-    background-color: red;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  padding: 10px 20px;
+  background-color: red !important;
+  color: white !important;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-
 #footer {
-    background-color: #d92d2a; /* Warna latar belakang merah */
-    color: white; /* Teks berwarna putih */
-    padding: 20px 0; /* Memberikan padding atas dan bawah */
-    font-family: Arial, sans-serif; /* Menetapkan font */
-  }
-  
-  #footer .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
-  .footer-left {
-    text-align: left;
-  }
-  
-  .footer-right {
-    text-align: right;
-  }
-  
-  .brand-name {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .copyright {
-    font-size: 14px;
-  }
-  
-  .footer-right p {
-    font-size: 14px;
-    margin-bottom: 10px; /* Memberikan jarak bawah */
-  }
-  
-  
+  background-color: #d92d2a; /* Warna latar belakang merah */
+  color: white; /* Teks berwarna putih */
+  padding: 20px 0; /* Memberikan padding atas dan bawah */
+  font-family: Arial, sans-serif; /* Menetapkan font */
+}
+
+#footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.footer-left {
+  text-align: left;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.brand-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.copyright {
+  font-size: 14px;
+}
+
+.footer-right p {
+  font-size: 14px;
+  margin-bottom: 10px; /* Memberikan jarak bawah */
+}
+
 .social-icons {
-    display: flex;
-    gap: 15px; /* Menambahkan jarak antar ikon */
+  display: flex;
+  gap: 15px; /* Menambahkan jarak antar ikon */
+}
+
+.social-icon {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #f1f1f1;
+}
+
+.social-icon.instagram:hover {
+  color: #e4405f;
+}
+
+.social-icon.twitter:hover {
+  color: #1da1f2;
+}
+
+.social-icon.tiktok:hover {
+  color: #010101;
+}
+/* Responsif navbar pada layar kecil */
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
   }
-  
-  .social-icon {
-    font-size: 20px;
-    color: white;
-    text-decoration: none;
+
+  .navbar-nav .nav-item {
+    margin: 10px 0;
   }
-  
-  .social-icon:hover {
-    color: #f1f1f1;
-  }
-  
-  .social-icon.instagram:hover {
-    color: #e4405f;
-  }
-  
-  .social-icon.twitter:hover {
-    color: #1da1f2;
-  }
-  
-  .social-icon.tiktok:hover {
-    color: #010101;
-  }
-  
+}
