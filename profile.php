@@ -92,7 +92,7 @@
 <body>
     <!-- Sidebar -->
     <div id="sidenav" class="sidenav">
-        <a href="#">Home</a>
+        <a href="home_page_login.php">Home</a>
         <a href="#">Profil</a>
         <a href="#">Donasi</a>
         <a href="#">Tentang</a>
@@ -107,8 +107,8 @@
             <button id="toggleButton" class="btn btn-outline-dark">
                 <i class="fas fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="#">
-                <img src="logo.png" alt="AIVA Logo" width="100">
+            <a class="navbar-brand" href="home_page_login.php">
+                <img src="Asset/logo.png" alt="AIVA Logo" width="80">
             </a>
         </div>
     </nav>

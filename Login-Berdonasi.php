@@ -42,7 +42,7 @@ if (!$result) {
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light shadow-sm">
         <div class="container-fluid d-flex">
             <!-- Logo -->
-            <a class="navbar-brand me-auto" href="#">
+            <a class="navbar-brand me-auto" href="home_page_login.php">
                 <img src="Asset/logo.png" alt="Aiva Care Logo" style="width: 60px;">
             </a>
 
@@ -54,8 +54,8 @@ if (!$result) {
             <!-- Navbar items -->
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="profile.php#hero">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.php#About-us">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home_page_login.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home_page_login.php#About-us">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="profile.php#documentation">Documentation</a></li>
                     <li class="nav-item"><a class="nav-link" href="profile.php#Menu">Menu</a></li>
                 </ul>
