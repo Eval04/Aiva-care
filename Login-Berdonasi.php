@@ -71,9 +71,7 @@ if (!$result) {
 
             <!-- Login button -->
             <div class="ms-auto">
-                
                 <a class="nav-link" href="profile.php"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M16 9a4 4 0 1 1-8 0a4 4 0 0 1 8 0m-2 0a2 2 0 1 1-4 0a2 2 0 0 1 4 0"/><path d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11s11-4.925 11-11S18.075 1 12 1M3 12c0 2.09.713 4.014 1.908 5.542A8.99 8.99 0 0 1 12.065 14a8.98 8.98 0 0 1 7.092 3.458A9 9 0 1 0 3 12m9 9a8.96 8.96 0 0 1-5.672-2.012A6.99 6.99 0 0 1 12.065 16a6.99 6.99 0 0 1 5.689 2.92A8.96 8.96 0 0 1 12 21"/></g></svg></a>
-
             </div>
         </div>
     </nav>
@@ -102,17 +100,22 @@ if (!$result) {
     <div class="row">
         <?php if ($result && $result->num_rows > 0): ?>
             <?php while ($campaign = $result->fetch_assoc()): ?>
+                <?php 
+                    $jumlah_terkumpul = $campaign['jumlah_terkumpul'];
+                    $jumlah_donasi = $campaign['jumlah_donasi'];
+                    $progress = ($jumlah_donasi > 0) ? min(100, ($jumlah_terkumpul / $jumlah_donasi) * 100) : 0; 
+                    
+                    // Cek apakah progress sudah mencapai 100%
+                    if ($progress == 100) {
+                        continue; // Lewatkan kampanye dengan progress 100%
+                    }
+                ?>
                 <div class="col-md-4">
                     <div class="card">
                         <img src="<?= htmlspecialchars($campaign['gambar']) ?>" class="card-img-top" alt="<?= htmlspecialchars($campaign['judul_donasi']) ?>">
                         <div class="card-body">
                             <h5 class="card-title"><?= htmlspecialchars($campaign['judul_donasi']) ?></h5>
                             <p class="card-text"><?= htmlspecialchars($campaign['deskripsi']) ?></p>
-                            <?php 
-                                $jumlah_terkumpul = $campaign['jumlah_terkumpul'];
-                                $jumlah_donasi = $campaign['jumlah_donasi'];
-                                $progress = ($jumlah_donasi > 0) ? min(100, ($jumlah_terkumpul / $jumlah_donasi) * 100) : 0; 
-                            ?>
                             <p class="card-text">
                                 <strong>Terkumpul:</strong> Rp <?= number_format($jumlah_terkumpul, 0, ',', '.') ?> / 
                                 Rp <?= number_format($jumlah_donasi, 0, ',', '.') ?>
@@ -137,7 +140,7 @@ if (!$result) {
             <p class="text-center">Belum ada kampanye donasi.</p>
         <?php endif; ?>
     </div>
-        </div>
+</div>
 
 <!-- footer Section -->
 <section id="footer">

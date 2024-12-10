@@ -44,10 +44,10 @@ if ($result && $result->num_rows > 0) {
             <!-- Navbar items -->
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="profile.php#hero">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.php#About-us">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.php#documentation">Documentation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.php#Menu">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home_page_login.php#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home_page_login.php#About-us">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home_page_login.php#documentation">Documentation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home_page_login.php#Menu">Menu</a></li>
                 </ul>
             </div>
 
