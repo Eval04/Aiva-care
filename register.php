@@ -9,9 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
+    $nama = $_POST['nama']; // Ambil input nama dari form
 
     // Validasi input
-    if (empty($email) || empty($password) || empty($confirm_password)) {
+    if (empty($email) || empty($password) || empty($confirm_password) || empty($nama)) {
         $message = 'Semua field harus diisi!';
     } elseif ($password !== $confirm_password) {
         $message = 'Password dan Konfirmasi Password tidak cocok!';
@@ -30,9 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
             // Simpan data pengguna ke database
-            $sql = "INSERT INTO users (email, nama, password) VALUES (?, ?)";
+            $sql = "INSERT INTO users (email, nama, password) VALUES (?, ?, ?)";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param('ss', $email, $hashed_password);
+            $stmt->bind_param('sss', $email, $nama, $hashed_password);
 
             if ($stmt->execute()) {
                 $message = 'Registrasi berhasil! Silakan login.';
@@ -50,8 +51,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aiva Care - Register</title>
+    <link rel="stylesheet" href="ccss/style.css">
+
     <!-- Link ke CSS Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
    
 </head>
 <body class="d-flex justify-content-center align-items-center vh-100">

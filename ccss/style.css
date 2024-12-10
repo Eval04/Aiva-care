@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  font-family: "Poppins";
+  font-family: "Poppins" !important;
 }
 
 .navbar-nav {
