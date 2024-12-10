@@ -11,23 +11,23 @@ if (!isset($_SESSION['user_id'])) {
 include("connection/koneksi.php");
 
 // Cek apakah ada kategori yang dipilih
-$kategori_filter = '';
-if (isset($_GET['kategori']) && !empty($_GET['kategori'])) {
-    $kategori_filter = $_GET['kategori'];
-}
+// Ambil tanggal saat ini
+$current_date = date('Y-m-d'); // Sesuaikan dengan format tanggal yang digunakan di database
 
-// Jalankan query untuk mengambil data kampanye berdasarkan kategori jika ada
-$sql = "SELECT * FROM campaign";
+// Modifikasi query untuk menambahkan pengecekan tenggat waktu
+$sql = "SELECT * FROM campaign WHERE tenggat_waktu >= '$current_date'"; // Menampilkan hanya kampanye dengan deadline belum lewat
 if ($kategori_filter) {
-    $sql .= " WHERE kategori = '$kategori_filter'";
+    $sql .= " AND kategori = '$kategori_filter'"; // Menambahkan filter kategori jika ada
 }
 
+// Jalankan query
 $result = $conn->query($sql);
 
 // Periksa apakah query berhasil
 if (!$result) {
     die("Query gagal: " . $conn->error);
 }
+
 ?>
 
 <!DOCTYPE html>

@@ -38,9 +38,15 @@ $gambar_profile_path = 'img/' . $gambar_profile;
     <title>Edit Profil AIVA</title>
 
     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="ccss/edit.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <nav>
+        <div class="tombol_kebali container-fluid mt-3"> 
+            <a href="profile.php"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="60" viewBox="0 0 24 24"><path fill="#000000" d="m7.825 13l4.9 4.9q.3.3.288.7t-.313.7q-.3.275-.7.288t-.7-.288l-6.6-6.6q-.15-.15-.213-.325T4.426 12t.063-.375t.212-.325l6.6-6.6q.275-.275.688-.275t.712.275q.3.3.3.713t-.3.712L7.825 11H19q.425 0 .713.288T20 12t-.288.713T19 13z"/></svg></a>
+    </div>
+    </nav>
     <div class="container">
         <h2 class="my-4">Edit Profil</h2>
         <form action="update_profil.php" method="POST" enctype="multipart/form-data">

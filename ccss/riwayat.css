@@ -1,0 +1,105 @@
+html,
+body {
+  height: 100%; /* Pastikan body dan html memiliki tinggi penuh */
+  margin: 0; /* Menghilangkan margin default */
+  display: flex;
+  flex-direction: column; /* Susun konten secara vertikal */
+}
+.btnlagi {
+  height: 100px; /* Membuat kontainer memiliki tinggi penuh layar */
+  display: flex;
+  justify-content: center; /* Memusatkan secara horizontal */
+  align-items: center; /* Memusatkan secara vertikal */
+}
+.btn {
+  padding: 10px 20px;
+  /* background-color: #005ea1; */
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+#footer {
+  margin-top: auto; /* Menjaga footer tetap di bawah */
+  background-color: #d92d2a;
+  color: white;
+  padding: 20px 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Memastikan footer berada di bawah */
+#footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.footer-left {
+  text-align: left;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.brand-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.copyright {
+  font-size: 14px;
+}
+
+.footer-right p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #f1f1f1;
+}
+
+.social-icon.instagram:hover {
+  color: #e4405f;
+}
+
+.social-icon.twitter:hover {
+  color: #1da1f2;
+}
+
+.social-icon.tiktok:hover {
+  color: #010101;
+}
+
+.footer {
+  background-color: #d00000;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer .social-icons a {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.5rem;
+}
