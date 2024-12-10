@@ -176,7 +176,7 @@ if ($conn->connect_error) {
 
             <!-- Menu Item 3 -->
             <div class="col-md-4 mb-4">
-                <a href="login.php">
+                <a href="riwayat.php">
                 <div class="d-flex flex-column align-items-center">
                     <div class="icon-wrapper bg-danger rounded-circle d-flex justify-content-center align-items-center" style="width: 80px; height: 80px;">
                         <img src="Asset/history.png" alt="History" style="width: 50%; filter: invert(100%);">

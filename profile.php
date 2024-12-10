@@ -134,6 +134,7 @@ if ($user) {
         <a href="#">Profil</a>
         <a href="Login-Berdonasi.php">Donasi</a>
         <a href="home_page_login.php#About-us">Tentang</a>
+        <a href="riwayat.php">Riwayat</a>
         <a href="logout.php">Logout</a>
     </div>
 

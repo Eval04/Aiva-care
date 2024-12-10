@@ -1,5 +1,12 @@
 <?php
 include("connection/koneksi.php");
+session_start();
+
+// Pastikan user telah login
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php"); // Redirect ke halaman login jika user belum login
+    exit();
+}
 
 // Tangkap ID dari parameter URL
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
@@ -7,20 +14,26 @@ $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 // Periksa apakah formulir telah dikirim
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nominal = isset($_POST['nominal']) ? floatval($_POST['nominal']) : 0;
+    $metode_pembayaran = isset($_POST['metode_pembayaran']) ? $_POST['metode_pembayaran'] : '';
 
     // Validasi ID dan nominal
-    if ($id > 0 && $nominal > 0) {
-        // Update jumlah_terkumpul di database
-        $update_sql = "UPDATE campaign SET jumlah_terkumpul = jumlah_terkumpul + $nominal WHERE id = $id";
-        if ($conn->query($update_sql) === TRUE) {
-            // Redirect ke halaman detail_donasi setelah berhasil
+    if ($id > 0 && $nominal > 0 && !empty($metode_pembayaran)) {
+        // Simpan transaksi ke database
+        $insert_sql = "INSERT INTO transaksi (user_id, campaign_id, jumlah_donasi, metode_pembayaran) 
+                       VALUES ('{$_SESSION['user_id']}', '$id', '$nominal', '$metode_pembayaran')";
+        if ($conn->query($insert_sql) === TRUE) {
+            // Update jumlah terkumpul
+            $update_sql = "UPDATE campaign SET jumlah_terkumpul = jumlah_terkumpul + $nominal WHERE id = $id";
+            $conn->query($update_sql);
+
+            // Redirect setelah berhasil
             header("Location: detail_donasi.php?id=" . $id);
-            exit(); // Pastikan script berhenti setelah redirect
+            exit();
         } else {
             echo "<script>alert('Terjadi kesalahan. Coba lagi nanti.');</script>";
         }
     } else {
-        echo "<script>alert('Nominal donasi tidak valid.');</script>";
+        echo "<script>alert('Nominal donasi atau metode pembayaran tidak valid.');</script>";
     }
 }
 
@@ -45,9 +58,7 @@ if ($result && $result->num_rows > 0) {
     <link rel="stylesheet" href="ccss/metode_pembayaran.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="JQuery/metode_pembayaran.js" defer></script>
-    <!-- FontAwesome untuk ikon sosial -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -68,6 +79,7 @@ if ($result && $result->num_rows > 0) {
                     <li class="nav-item"><a class="nav-link" href="profile.php#Menu">Menu</a></li>
                 </ul>
             </div>
+        </div>
     </nav>
     
     <div class="container">
@@ -85,7 +97,6 @@ if ($result && $result->num_rows > 0) {
         <div id="bank" class="content active">
             <h3>Donasi Via Bank</h3>
             <form method="POST" action="">
-                <!-- Input tersembunyi untuk ID campaign -->
                 <input type="hidden" id="id" name="id" value="<?= $id; ?>">
 
                 <div class="form-group">
@@ -113,6 +124,7 @@ if ($result && $result->num_rows > 0) {
                     <input type="number" id="jumlah_terkumpul" name="nominal" required>
                 </div>
                 
+                <input type="hidden" name="metode_pembayaran" value="bank">
                 <button type="submit" class="btn mb-5">Kirim Donasi</button>
             </form>
         </div>
@@ -136,31 +148,34 @@ if ($result && $result->num_rows > 0) {
 
                 <div class="form-group">
                     <label for="ewallet-nominal">Nominal Donasi</label>
-                    <input type="number" id="ewallet-nominal" name="ewallet-nominal">
+                    <input type="number" id="ewallet-nominal" name="nominal">
                 </div>
 
+                <input type="hidden" name="metode_pembayaran" value="ewallet">
                 <button type="submit" class="btn mb-5">Kirim Donasi</button>
             </form>
         </div>
     </div>
 
-    <!-- footer Section -->
-    <section id="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <p class="brand-name ds-5">AIVACARE</p>
-                    <p class="copyright fs-5">© 2024 AIVA - Platform Donasi. Semua hak dilindungi.</p>
-                </div>
-                <div class="footer-right">
-                    <p class="fs-5">Social Media</p>
-                    <div class="social-icons">
-                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="#000000" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25v7.5c0 .69-.56 1.25-1.25 1.25H7.15a1.25 1.25 0 0 1-1.25-1.25V6.75a1.25 1.25 0 0 1 1.25-1.25H16.4a1.25 1.25 0 0 1 1.25 1.25z"></path></svg></a>
-                    </div>
-                </div>
-            </div>
+   <!-- footer Section -->
+ <section id="footer">
+ <div class="container ">
+    <div class="footer-content">
+      <div class="footer-left">
+        <p class="brand-name ds-5">AIVACARE</p>
+        <p class="copyright fs-5">© 2024 AIVA - Platform Donasi. Semua hak dilindungi.</p>
+      </div>
+      <div class="footer-right">
+        <p class="fs-5">Social Media</p>
+        <div class="social-icons">
+          <a href="#" ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="#000000" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"/></svg> </i></a>
+          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 251 256"><path d="M149.079 108.399L242.33 0h-22.098l-80.97 94.12L74.59 0H0l97.796 142.328L0 256h22.1l85.507-99.395L175.905 256h74.59L149.073 108.399zM118.81 143.58l-9.909-14.172l-78.84-112.773h33.943l63.625 91.011l9.909 14.173l82.705 118.3H186.3l-67.49-96.533z"/></svg></i></a>
+          <a href="#" ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="#000000" d="M19 10.56a6.57 6.57 0 0 1-3.838-1.229v5.588a5.082 5.082 0 1 1-4.38-5.035v2.81a2.33 2.33 0 1 0 1.63 2.225V4h2.75q-.002.35.06.694A3.82 3.82 0 0 0 16.906 7.2c.621.41 1.35.629 2.094.628z"/></svg></i></a>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+ </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
