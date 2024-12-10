@@ -174,7 +174,10 @@ $conn->close();
                 <input type="date" class="form-control" id="tenggat_waktu" name="tenggat_waktu">
             </div>
         </div>
-        <button type="submit" class="btn btn-danger w-100">Buat</button>
+        <div class="button-donasi d-grid gap-2 d-md-flex justify-content-center">
+        <button type="submit" class="btn btn-danger w-50">Buat</button>
+        </div>
+       
     </form>
 </div>
 

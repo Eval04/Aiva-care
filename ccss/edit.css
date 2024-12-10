@@ -1,0 +1,9 @@
+.tombol_kebali a svg {
+  transition: transform 0.3s ease; /* Untuk membuat transisi halus saat bergerak */
+}
+
+.tombol_kebali a:hover svg {
+  transform: translateX(
+    -10px
+  ); /* Menyebabkan ikon bergerak ke samping 10px saat di-hover */
+}
