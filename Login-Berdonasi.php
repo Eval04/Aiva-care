@@ -13,6 +13,8 @@ include("connection/koneksi.php");
 // Cek apakah ada kategori yang dipilih
 // Ambil tanggal saat ini
 $current_date = date('Y-m-d'); // Sesuaikan dengan format tanggal yang digunakan di database
+// Inisialisasi filter kategori
+$kategori_filter = isset($_GET['kategori']) ? $conn->real_escape_string($_GET['kategori']) : null;
 
 // Modifikasi query untuk menambahkan pengecekan tenggat waktu
 $sql = "SELECT * FROM campaign WHERE tenggat_waktu >= '$current_date'"; // Menampilkan hanya kampanye dengan deadline belum lewat
