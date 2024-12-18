@@ -10,21 +10,31 @@ body {
   display: flex;
   justify-content: center; /* Memusatkan secara horizontal */
   align-items: center; /* Memusatkan secara vertikal */
+  margin-bottom: 30px;
 }
 .btn {
   padding: 10px 20px;
-  /* background-color: #005ea1; */
   color: white;
   border: none;
   cursor: pointer;
   font-size: 16px;
 }
+
+.tombol_kebali a svg {
+  transition: transform 0.3s ease; /* Untuk membuat transisi halus saat bergerak */
+}
+
+.tombol_kebali a:hover svg {
+  transform: translateX(
+    -10px
+  ); /* Menyebabkan ikon bergerak ke samping 10px saat di-hover */
+}
+
 #footer {
   margin-top: auto; /* Menjaga footer tetap di bawah */
   background-color: #d92d2a;
   color: white;
   padding: 20px 0;
-  font-family: Arial, sans-serif;
 }
 
 /* Memastikan footer berada di bawah */

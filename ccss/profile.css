@@ -1,10 +1,12 @@
 /* HTML dan body */
 html,
 body {
-  height: 100%; /* Pastikan body dan html memiliki tinggi penuh */
-  margin: 0; /* Menghilangkan margin default */
+  margin: 0;
+  padding: 0;
+  height: 100%;
   display: flex;
-  flex-direction: column; /* Susun konten secara vertikal */
+  flex-direction: column;
+  font-family: "Poppins" !important;
 }
 
 /* Sidebar */
@@ -96,7 +98,6 @@ body {
   background-color: #d92d2a;
   color: white;
   padding: 20px 0;
-  font-family: Arial, sans-serif;
 }
 
 /* Memastikan footer berada di bawah */

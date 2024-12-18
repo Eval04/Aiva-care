@@ -1,11 +1,13 @@
-html {
-  scroll-behavior: smooth;
-}
-
+html,
 body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
   font-family: "Poppins" !important;
 }
-
 .navbar-nav {
   font-size: 1.1rem;
 }
@@ -53,12 +55,13 @@ body {
 }
 
 #footer {
-  background-color: #d92d2a; /* Warna latar belakang merah */
-  color: white; /* Teks berwarna putih */
-  padding: 20px 0; /* Memberikan padding atas dan bawah */
-  font-family: Arial, sans-serif; /* Menetapkan font */
+  margin-top: auto; /* Menjaga footer tetap di bawah */
+  background-color: #d92d2a;
+  color: white;
+  padding: 20px 0;
 }
 
+/* Memastikan footer berada di bawah */
 #footer .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -92,12 +95,12 @@ body {
 
 .footer-right p {
   font-size: 14px;
-  margin-bottom: 10px; /* Memberikan jarak bawah */
+  margin-bottom: 10px;
 }
 
 .social-icons {
   display: flex;
-  gap: 15px; /* Menambahkan jarak antar ikon */
+  gap: 15px;
 }
 
 .social-icon {
@@ -122,6 +125,18 @@ body {
   color: #010101;
 }
 
+.footer {
+  background-color: #d00000;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer .social-icons a {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.5rem;
+}
 #deskripsi {
   resize: none;
 }
